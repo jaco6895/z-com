@@ -18,6 +18,10 @@ export const metadata: Metadata = {
 *
 * [] : 대괄호 - url에 관여를 하지만 이름이 변경될 수 있는 폴더명 ( 예시 : user이름 )
 * () : 소괄호 - url에 관여를 안하지만 그룹을 지을 수 있는 폴더명 ( 예시 : login 전 login 후)
+*
+*
+* template.tsx : 새로운 데이터를 가져올 때 마운트가 되는 페이지명
+* layout.tsx : 리 렌더링, 데이터를 다시 가져오지 않는 페이지명
 * */
 
 
