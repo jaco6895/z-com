@@ -1,4 +1,3 @@
-import RootLayout from "@/app/layout";
 
 export default async function HomeLayout({children}) {
   return (
