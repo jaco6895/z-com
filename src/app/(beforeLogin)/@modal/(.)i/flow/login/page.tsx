@@ -1,5 +1,5 @@
 "use client"; /* 클라이언트 컴포넌트 전환 */
-import styles from "@/app/(beforeLogin)/i/flow/login/login.module.css";
+import styles from "@/app/(beforeLogin)/@modal/(.)i/flow/login/login.module.css";
 import {useState} from "react";
 export default function Page(){
   /*
@@ -15,7 +15,7 @@ export default function Page(){
   * 서버 컴포넌트 -> 클라이언트 컴포넌트로 변환 시 생기는 단점
   * 데이터 관점에서 생기는 장점들이 사라집니다.
   *
-  * *
+  *   *
   *
   *
   * */
