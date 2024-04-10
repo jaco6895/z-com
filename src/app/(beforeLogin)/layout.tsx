@@ -28,6 +28,9 @@ type Props = { children: ReactNode, modal: ReactNode };
  *    "i/flow/login"으로 경로로 이동 할 경우 "i"폴더 경로를 인터셉팅 (가로 채다)하여
  *    결과적으로 "(.)i/flow/login/page.tsx"으로 이동하게 됩니다.
  *
+ *    Private Folder
+ *    "_"folderName :
+ *
  *  *주의
  *    클라이언트에서 라우팅 할 때만 인터셉트 라우팅이 적용됩니다.
  *    (예시 : Link로 href 주소로 이동 할 시에만 적용 )
