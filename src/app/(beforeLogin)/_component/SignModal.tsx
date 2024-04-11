@@ -1,7 +1,7 @@
 "use client"; /* 클라이언트 컴포넌트 전환 */
 import styles from "@/app/(beforeLogin)/_component/login.module.css";
 import {useState} from "react";
-export default function LoginModal(){
+export default function SignModal(){
   /*
   * 특수한 컴포넌트 (서버 컴포넌트, 클라이언트 컴포넌트 )
   * 기본적으로 리액트는 클라이언트 컴포넌트입니다. (클라이언트 내부에서 돌기 때문)
@@ -43,7 +43,7 @@ export default function LoginModal(){
           <button className={styles.closeButton} onClick={onClickClose}>
             <span className="material-symbols-rounded">close</span>
           </button>
-          <div>로그인하세요.</div>
+          <div>회원가입하세요.</div>
         </div>
 
         <form onSubmit={onSubmit}>
@@ -59,7 +59,7 @@ export default function LoginModal(){
           </div>
           <div className={styles.message}>{message}</div>
           <div className={styles.modalFooter}>
-            <button className={styles.actionButton} disabled={!id && !password}>로그인하기</button>
+            <button className={styles.actionButton} disabled={!id && !password}>회원가입 완료하기</button>
           </div>
         </form>
       </div>
