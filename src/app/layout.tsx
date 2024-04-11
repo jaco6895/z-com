@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import 'material-symbols';
 import {ReactNode} from "react";
 import MswComponent from "@/app/_component/MSWComponent";
+import "./globals.css";
+import 'material-symbols';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,20 +60,13 @@ type Props = { children: ReactNode };
 * layout.tsx : 리 렌더링, 데이터를 다시 가져오지 않는 페이지명
 * default.tsx : 기본상태 페이지입니다.
 * */
-//
-// if (process.env.NODE_ENV === 'development') {
-//   if (typeof window === 'undefined') {
-//     (async () => {
-//       const { server } = await import('../mocks/server');
-//       server.listen();
-//     })();
-//   } else {
-//     (async () => {
-//       const { worker } = await import('../mocks/browser');
-//       worker.start();
-//     })();
-//   }
-// }
+
+/*
+* MswComponent
+* 목업 서버 워커 (가상 api) **** 응용에 따라 시간 절약이 매우 될 수 있습니다.
+*   api가 만들어져 있지 않을 때 프론트쪽에서 api 응답을 가로채서 테스트를 하기 위한 라이브러리 입니다.
+*   강제로 특정 에러를 내기 위해도 사용 가능합니다.
+* */
 
 export default function RootLayout({ children}: Props) {
   return (
