@@ -1,6 +1,9 @@
-"use client"; /* 클라이언트 컴포넌트 전환 */
+"use client";
+
 import styles from "@/app/(beforeLogin)/_component/login.module.css";
-import {useState} from "react";
+import BackButton from "@/app/(beforeLogin)/_component/BackButton";
+import onSubmit from "../_lib/signup";
+import { useFormState, useFormStatus } from "react-dom";
 export default function SignModal(){
   /*
   * 특수한 컴포넌트 (서버 컴포넌트, 클라이언트 컴포넌트 )
@@ -15,20 +18,18 @@ export default function SignModal(){
   * 서버 컴포넌트 -> 클라이언트 컴포넌트로 변환 시 생기는 단점
   * 데이터 관점에서 생기는 장점들이 사라집니다.
   *
-  *   *
+  * * Next 14 버전에서 Server Action 이 정식 기능으로 되었습니다.
   *
   *
   * */
-  const [id,setId] = useState();
-  const [password,setPassword] = useState();
-  const [message,setMessage] = useState();
 
-  const onSubmit = () =>{
+  /*
+  * next 에서 지원중입니다.
+  * form에서 사용 하고 있는 속성에 접근이 가능합니다.
+  * */
+  const [state, formAction] = useFormState(onSubmit,{message:null});
+  const {pending} = useFormStatus();
 
-  };
-  const onClickClose = () =>{
-
-  };
   const onChangeId = () =>{
 
   };
@@ -40,26 +41,32 @@ export default function SignModal(){
     <div className={styles.modalBackground}>
       <div className={styles.modal}>
         <div className={styles.modalHead}>
-          <button className={styles.closeButton} onClick={onClickClose}>
-            <span className="material-symbols-rounded">close</span>
-          </button>
-          <div>회원가입하세요.</div>
+          <BackButton />
+          <div>계정을 생성하세요.</div>
         </div>
 
-        <form onSubmit={onSubmit}>
+        <form action={formAction}>
           <div className={styles.modalBody}>
             <div className={styles.inputWrapper}>
               <label className={styles.inputLabel} htmlFor="id">아이디</label>
-              <input type="text" name="id" id="id" className={styles.input} value={id} onChange={onChangeId} placeholder={""}/>
+              <input type="text" name="id" id="id" className={styles.input} placeholder={""} required/>
+            </div>
+            <div className={styles.inputWrapper}>
+              <label className={styles.inputLabel} htmlFor="nickname">닉네임</label>
+              <input type="text" name="name" id="nickname" className={styles.input} placeholder={""} required/>
             </div>
             <div className={styles.inputWrapper}>
               <label className={styles.inputLabel} htmlFor="password">비밀번호</label>
-              <input type="password" name="password" id="password" className={styles.input} value={password} onChange={onChangePassword} placeholder={""}/>
+              <input type="password" name="password" id="password" className={styles.input} placeholder={""} required/>
+            </div>
+            <div className={styles.inputWrapper}>
+              <label className={styles.inputLabel} htmlFor="password">프로필</label>
+              <input type="file" name="profile" id="profile" className={styles.input} placeholder={""} required/>
             </div>
           </div>
-          <div className={styles.message}>{message}</div>
+          <div className={styles.message}>{}</div>
           <div className={styles.modalFooter}>
-            <button className={styles.actionButton} disabled={!id && !password}>회원가입 완료하기</button>
+            <button className={styles.actionButton} disabled={pending}>회원가입 완료하기</button>
           </div>
         </form>
       </div>

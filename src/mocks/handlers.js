@@ -10,18 +10,19 @@ export const handlers = [
         },{
             headers:{
             'Set-Cookie':`connect.sid=msw-cookie;HttpOnly;Path=/`
-
             }
         })
     }),
-    http.post(`/api/login`,()=>{
-        return new HttpResponse(null,{
-            headers:{
-                'Set-Cookie':`connect.sid=;HttpOnly;Path=/;Max-Age=0`
-
-            }
-            }
-
-        )
+    http.post(`/api/users`,async ()=>{
+        // 실패 했을 경우
+        // return HttpResponse.text(JSON.stringify('user_exists'),{
+        //     status: 403
+        // })
+        // 성공 했을 때
+        return HttpResponse.text(JSON.stringify('ok'),{
+              headers:{
+              'Set-Cookie':`connect.sid=msw-cookie;HttpOnly;Path=/`
+              }
+          })
     })
 ];

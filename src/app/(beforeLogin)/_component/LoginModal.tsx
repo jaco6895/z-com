@@ -1,4 +1,6 @@
 import styles from "@/app/(beforeLogin)/_component/login.module.css";
+import {router} from "next/client";
+import BackButton from "@/app/(beforeLogin)/_component/BackButton";
 
 export default function LoginModal(){
   let id = '';
@@ -7,9 +9,7 @@ export default function LoginModal(){
   const onSubmit = () =>{
 
   };
-  const onClickClose = () =>{
 
-  };
   const onChangeId = () =>{
 
   };
@@ -21,9 +21,7 @@ export default function LoginModal(){
     <div className={styles.modalBackground}>
       <div className={styles.modal}>
         <div className={styles.modalHead}>
-          <button className={styles.closeButton} onClick={onClickClose}>
-            <span className="material-symbols-rounded">close</span>
-          </button>
+          <BackButton />
           <div>로그인하세요.</div>
         </div>
 
